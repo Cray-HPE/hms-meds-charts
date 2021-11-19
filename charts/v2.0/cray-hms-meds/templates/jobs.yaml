@@ -20,7 +20,7 @@ spec:
                 secretKeyRef:
                   name: cray-meds-credentials
                   key: vault_redfish_defaults
-          image: "{{ .Values.image.repository }}:{{ default .Chart.AppVersion .Values.image.tag }}"
+          image: "{{ .Values.image.repository }}:{{ default .Values.global.appVersion .Values.image.tag }}"
           command: ["vault_loader"]
 ---
 apiVersion: batch/v1
