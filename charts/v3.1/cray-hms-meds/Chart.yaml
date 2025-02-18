@@ -1,0 +1,17 @@
+apiVersion: v2
+name: "cray-hms-meds"
+version: 3.1.0
+description: "Kubernetes resources for cray-hms-meds"
+home: "https://github.com/Cray-HPE/hms-meds-charts"
+sources:
+  - "https://github.com/Cray-HPE/hms-meds"
+dependencies:
+  - name: cray-service
+    version: "~11.0"
+    repository: https://artifactory.algol60.net/artifactory/csm-helm-charts
+maintainers:
+  - name: Hardware Management
+    url: https://github.com/orgs/Cray-HPE/teams/hardware-management
+appVersion: "1.22.0"
+annotations:
+  artifacthub.io/license: "MIT"
