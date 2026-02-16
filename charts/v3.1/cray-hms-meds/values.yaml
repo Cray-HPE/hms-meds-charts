@@ -36,6 +36,8 @@ cray-service:
       image:
         repository: artifactory.algol60.net/csm-docker/stable/cray-meds
       env:
+        - name: HSM_URL
+          value: "http://cray-smd/hsm/v2"
         - name: MEDS_OPTS
           valueFrom:
             configMapKeyRef:
@@ -72,7 +74,7 @@ cray-service:
               name: meds-cacert-info
               key: CA_URI
       command: ["/bin/sh", "-c"]
-      args: ["until curl --head localhost:15000 ; do echo Waiting for Sidecar; sleep 3 ; done ; echo Sidecar available; meds ${MEDS_OPTS}"]
+      args: ["until curl --head localhost:15000 ; do echo Waiting for Sidecar; sleep 3 ; done ; echo Sidecar available; meds -hsm ${HSM_URL} ${MEDS_OPTS}"]
       livenessProbe:
         exec:
           command:
